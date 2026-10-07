@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Pixel Art Portfolio of Abhay - Full-Stack Software Engineer & Creative Developer specializing in modern web architecture, scalable backend systems, and interactive experiences.">
+    <meta name="keywords"
+        content="Software Engineer, Full-Stack Developer, Portfolio, Pixel Art, Web Developer, JavaScript, Python, React, Systems Engineering">
+    <meta name="author" content="Abhay">
+    <title>Abhay | Software Engineer & Creative Developer (Pixel Portfolio)</title>
+
+    <!-- Google Fonts for Retro Pixel Aesthetics and Clean Body Readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for UI & Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="auto">
+
+    <!-- Ambient Retro Particle Canvas Layer -->
+    <canvas id="particlesCanvas" aria-hidden="true"></canvas>
+
+    <!-- ==========================================================================
+         NIGHT MODE / THEME CONTROLLER & ACCESSIBILITY CONTROLS
+         Placeholder & controller for light/dark/system mode and CRT effects toggle
+         ========================================================================== -->
+    <div class="theme-control-bar" role="region" aria-label="Display and Theme Settings">
+        <button id="themeToggleBtn" class="pixel-btn-sm" aria-label="Toggle light and dark theme mode"
+            title="Switch Theme (System / Dark / Light)">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+            <span class="btn-text" id="themeLabel">THEME: AUTO</span>
+        </button>
+        <button id="sfxToggleBtn" class="pixel-btn-sm" aria-label="Toggle 8-bit sound effects"
+            title="Toggle 8-bit retro audio cues">
+            <i class="fa-solid fa-volume-high" id="sfxIcon"></i>
+            <span class="btn-text" id="sfxLabel">SFX: ON</span>
+        </button>
+    </div>
+
+    <!-- Mobile Header Bar for Small Screens -->
+    <header class="mobile-header" role="banner">
+        <a href="#hero" class="mobile-brand">
+            <img src="WhatsApp Image 2026-10-05 at 7.47.28 PM.jpeg" alt="Abhay's Avatar" class="mobile-brand-avatar">
+            <span class="brand-name">ABHAY.DEV</span>
+        </a>
+        <button id="mobileMenuToggle" class="mobile-burger-btn" aria-label="Open Navigation Menu" aria-expanded="false"
+            aria-controls="mainNav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="layout-container">
+        <!-- ==========================================================================
+             VERTICAL NAVIGATION BAR (LEFT SIDE OF SCREEN)
+             Accessible, pixel-styled vertical dock with quick section navigation
+             ========================================================================== -->
+        <nav id="mainNav" class="vertical-navbar" aria-label="Primary Portfolio Navigation">
+            <div class="nav-branding">
+                <div class="pixel-avatar-mini" aria-label="Abhay Profile Avatar">
+                    <img src="WhatsApp Image 2026-10-05 at 7.47.28 PM.jpeg" alt="Abhay's Profile Avatar"
+                        class="mini-avatar-img">
+                    <span class="mini-avatar-scanline" aria-hidden="true"></span>
+                    <span class="online-indicator" title="Status: Ready to build"></span>
+                </div>
+                <div class="brand-text-block">
+                    <h2 class="brand-title">ABHAY</h2>
+                    <span class="brand-subtitle">LEVEL 99 DEV</span>
+                </div>
+            </div>
+
+            <ul class="nav-links" role="menubar">
+                <li role="none">
+                    <a href="#hero" class="nav-link active" role="menuitem" data-section="hero">
+                        <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#about" class="nav-link" role="menuitem" data-section="about">
+                        <i class="fa-solid fa-user-astronaut" aria-hidden="true"></i>
+                        <span>About Me</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#skills" class="nav-link" role="menuitem" data-section="skills">
+                        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                        <span>Skills</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#timeline" class="nav-link" role="menuitem" data-section="timeline">
+                        <i class="fa-solid fa-timeline" aria-hidden="true"></i>
+                        <span>Timeline</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#projects" class="nav-link" role="menuitem" data-section="projects">
+                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#video-highlight" class="nav-link" role="menuitem" data-section="video-highlight">
+                        <i class="fa-solid fa-play" aria-hidden="true"></i>
+                        <span>Intro Video</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#testimonials" class="nav-link" role="menuitem" data-section="testimonials">
+                        <i class="fa-solid fa-comments" aria-hidden="true"></i>
+                        <span>Testimonials</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#chat" class="nav-link" role="menuitem" data-section="chat">
+                        <i class="fa-solid fa-robot" aria-hidden="true"></i>
+                        <span>AI Chat</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a href="#contact" class="nav-link" role="menuitem" data-section="contact">
+                        <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-footer-stats">
+                <div class="stat-pill"><i class="fa-solid fa-heart pixel-heart"></i> HP: 100/100</div>
+                <div class="stat-pill"><i class="fa-solid fa-bolt pixel-bolt"></i> MP: 999/999</div>
+            </div>
+        </nav>
+
+        <!-- ==========================================================================
+             MAIN CONTENT WRAPPER
+             ========================================================================== -->
+        <main id="mainContent" class="main-content">
+
+            <!-- ======================================================================
+                 SECTION 1: HERO SECTION
+                 Pixel art hero with background art, typing tagline, and action buttons
+                 ====================================================================== -->
+            <section id="hero" class="hero-section" aria-labelledby="hero-heading">
+                <!-- Retro Grid & Scanline Background Layer -->
+                <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+                <div class="hero-content">
+                    <div class="pixel-badge">
+                        <span class="blinking-dot"></span> QUEST ACTIVE: OPEN FOR OPPORTUNITIES
+                    </div>
+
+                    <h1 id="hero-heading" class="hero-title">
+                        HELLO WORLD, I'M <span class="highlight-glitch" data-text="ABHAY">ABHAY</span>
+                    </h1>
+
+                    <p class="hero-tagline">
+                        <span class="pixel-prompt">></span>
+                        <span class="typewriter-text" id="typewriterText">Full-Stack Software Engineer & Systems
+                            Architect</span>
+                        <span class="cursor-block">_</span>
+                    </p>
+
+                    <p class="hero-subtext">
+                        Crafting high-performance web applications, scalable distributed backend systems, and delightful
+                        digital experiences with 8-bit heart & modern engineering rigor.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="pixel-button primary-btn">
+                            <i class="fa-solid fa-dungeon"></i> VIEW QUESTS (PROJECTS)
+                        </a>
+                        <a href="#chat" class="pixel-button secondary-btn">
+                            <i class="fa-solid fa-robot"></i> TALK TO MY AI
+                        </a>
+                        <a href="Abhay_Portfolio.pdf" target="_blank" class="pixel-button tertiary-btn"
+                            title="Download Resume PDF">
+                            <i class="fa-solid fa-file-pdf"></i> RESUME.PDF
+                        </a>
+                    </div>
+
+                    <div class="hero-floating-elements" aria-hidden="true">
+                        <span class="floating-item f-1">⚡ Node.js</span>
+                        <span class="floating-item f-2">🛡️ TypeScript</span>
+                        <span class="floating-item f-3">⚛️ React</span>
+                        <span class="floating-item f-4">🐍 Python</span>
+                    </div>
+                </div>
+
+                <a href="#about" class="scroll-down-indicator" aria-label="Scroll down to About section">
+                    <span class="scroll-label">PRESS START / SCROLL</span>
+                    <i class="fa-solid fa-angles-down bounce-anim"></i>
+                </a>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 2: ABOUT ME SECTION
+                 Avatar card, short bio, career highlights, and personal interests
+                 ====================================================================== -->
+            <section id="about" class="portfolio-section" aria-labelledby="about-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ CHARACTER SHEET ]</span>
+                    <h2 id="about-heading" class="section-title">ABOUT ME</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Profile Avatar Card with Pixel Frame -->
+                    <div class="about-avatar-card pixel-box">
+                        <div class="pixel-frame">
+                            <img src="WhatsApp Image 2026-10-05 at 7.47.28 PM.jpeg"
+                                alt="Portrait of Abhay, Software Engineer" class="profile-img"
+                                onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60'">
+                            <div class="frame-scanlines"></div>
+                        </div>
+                        <div class="avatar-meta">
+                            <h3 class="char-name">Abhay</h3>
+                            <span class="char-class">Class: Full-Stack Architect</span>
+                            <div class="char-stats">
+                                <div class="stat-row">
+                                    <span>Experience:</span>
+                                    <span class="stat-val">Level 4+ (Years)</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Code Velocity:</span>
+                                    <span class="stat-val">99.8%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Location:</span>
+                                    <span class="stat-val">Remote / Earth 🌐</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio & Highlights Content -->
+                    <div class="about-text-card pixel-box">
+                        <h3 class="card-subtitle"><i class="fa-solid fa-scroll"></i> PLAYER BIOGRAPHY</h3>
+                        <p class="bio-paragraph">
+                            I am a passionate software engineer with a deep love for building robust, scalable
+                            applications that bridge elegant frontend design with battle-tested backend architecture. My
+                            approach combines systematic problem-solving with creative flair.
+                        </p>
+                        <p class="bio-paragraph">
+                            Over the years, I've designed and delivered microservices, enterprise dashboards,
+                            high-throughput APIs, and responsive web platforms. When I am not optimizing SQL queries or
+                            refactoring component trees, I immerse myself in game development, retro computing,
+                            open-source tooling, and generative AI research.
+                        </p>
+
+                        <!-- Key Highlights Grid -->
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon"><i class="fa-solid fa-microchip"></i></div>
+                                <div class="highlight-info">
+                                    <h4>System Architecture</h4>
+                                    <p>Designing fault-tolerant microservices & event-driven backends.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon"><i class="fa-solid fa-layer-group"></i></div>
+                                <div class="highlight-info">
+                                    <h4>Modern Frontend</h4>
+                                    <p>Crafting accessible, pixel-perfect, and snappy user interfaces.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon"><i class="fa-solid fa-brain"></i></div>
+                                <div class="highlight-info">
+                                    <h4>AI & Automation</h4>
+                                    <p>Integrating LLMs and intelligent workflow automations.</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon"><i class="fa-solid fa-gamepad"></i></div>
+                                <div class="highlight-info">
+                                    <h4>Hobbies & Interests</h4>
+                                    <p>Retro gaming, mechanical keyboards, sci-fi novels, and pixel art.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 3: SKILLS SECTION
+                 Core competencies, progress bars, styled lists, animations & hover effects
+                 ====================================================================== -->
+            <section id="skills" class="portfolio-section" aria-labelledby="skills-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ SKILL TREE & ATTRIBUTES ]</span>
+                    <h2 id="skills-heading" class="section-title">CORE SKILLS</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <!-- Skill Categories Grid -->
+                <div class="skills-categories-grid">
+
+                    <!-- Category 1: Languages (Progress Bar Element Breakdown) -->
+                    <!-- Each progress bar demonstrates proficiency level with animated pixel fill -->
+                    <div class="skill-category-card pixel-box">
+                        <div class="category-title-bar">
+                            <i class="fa-solid fa-code"></i>
+                            <h3>Programming Languages</h3>
+                        </div>
+                        <div class="skill-bars-list">
+                            <!-- Skill: JavaScript / TypeScript -->
+                            <div class="skill-bar-group" data-skill="TypeScript / JavaScript">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-brands fa-js"></i> TypeScript /
+                                        JavaScript</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 95%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill: Python -->
+                            <div class="skill-bar-group" data-skill="Python">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-brands fa-python"></i> Python (Django /
+                                        FastAPI)</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 90%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill: Java / C++ -->
+                            <div class="skill-bar-group" data-skill="Java & C++">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-brands fa-java"></i> Java & C++</span>
+                                    <span class="skill-percentage">82%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 82%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill: SQL / PostgreSQL -->
+                            <div class="skill-bar-group" data-skill="SQL">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-solid fa-database"></i> SQL (PostgreSQL,
+                                        MySQL)</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 88%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Frameworks & Libraries -->
+                    <div class="skill-category-card pixel-box">
+                        <div class="category-title-bar">
+                            <i class="fa-solid fa-cubes"></i>
+                            <h3>Frameworks & Runtimes</h3>
+                        </div>
+                        <div class="skill-bars-list">
+                            <!-- Skill: React / Next.js -->
+                            <div class="skill-bar-group" data-skill="React / Next.js">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-brands fa-react"></i> React.js &
+                                        Next.js</span>
+                                    <span class="skill-percentage">92%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 92%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill: Node.js / Express -->
+                            <div class="skill-bar-group" data-skill="Node.js">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-brands fa-node"></i> Node.js & Express</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 90%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill: GraphQL & REST APIs -->
+                            <div class="skill-bar-group" data-skill="REST & GraphQL">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-solid fa-network-wired"></i> RESTful & GraphQL
+                                        APIs</span>
+                                    <span class="skill-percentage">94%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 94%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill: Tailwind & Modern CSS -->
+                            <div class="skill-bar-group" data-skill="CSS / Responsive">
+                                <div class="skill-bar-header">
+                                    <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> Modern CSS / UI
+                                        Design</span>
+                                    <span class="skill-percentage">89%</span>
+                                </div>
+                                <div class="pixel-progress-track">
+                                    <div class="pixel-progress-fill" style="--target-width: 89%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: DevOps, Tools & Infrastructure (Interactive Pixel Badges) -->
+                    <div class="skill-category-card pixel-box full-width-card">
+                        <div class="category-title-bar">
+                            <i class="fa-solid fa-toolbox"></i>
+                            <h3>Tools, Cloud & DevOps Inventory</h3>
+                        </div>
+                        <div class="skill-inventory-grid">
+                            <div class="inventory-badge" title="Docker Containerization">
+                                <i class="fa-brands fa-docker"></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="inventory-badge" title="Git Version Control">
+                                <i class="fa-brands fa-git-alt"></i>
+                                <span>Git / GitHub</span>
+                            </div>
+                            <div class="inventory-badge" title="AWS Cloud Infrastructure">
+                                <i class="fa-brands fa-aws"></i>
+                                <span>AWS Cloud</span>
+                            </div>
+                            <div class="inventory-badge" title="Kubernetes Cluster Orchestration">
+                                <i class="fa-solid fa-dharmachakra"></i>
+                                <span>Kubernetes</span>
+                            </div>
+                            <div class="inventory-badge" title="CI/CD Pipelines">
+                                <i class="fa-solid fa-gears"></i>
+                                <span>CI/CD Actions</span>
+                            </div>
+                            <div class="inventory-badge" title="Redis In-Memory Cache">
+                                <i class="fa-solid fa-server"></i>
+                                <span>Redis</span>
+                            </div>
+                            <div class="inventory-badge" title="MongoDB NoSQL Database">
+                                <i class="fa-solid fa-leaf"></i>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="inventory-badge" title="Linux Systems Administration">
+                                <i class="fa-brands fa-linux"></i>
+                                <span>Linux / Bash</span>
+                            </div>
+                            <div class="inventory-badge" title="Jest & Automated Testing">
+                                <i class="fa-solid fa-vial-circle-check"></i>
+                                <span>Unit Testing</span>
+                            </div>
+                            <div class="inventory-badge" title="WebSockets Realtime Comm">
+                                <i class="fa-solid fa-satellite-dish"></i>
+                                <span>WebSockets</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 4: TIMELINE SECTION
+                 Education, major projects, career milestones in retro cards
+                 ====================================================================== -->
+            <section id="timeline" class="portfolio-section" aria-labelledby="timeline-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ ADVENTURE LOG ]</span>
+                    <h2 id="timeline-heading" class="section-title">CAREER TIMELINE</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-track" aria-hidden="true"></div>
+
+                    <!-- Milestone 1 -->
+                    <div class="timeline-node">
+                        <div class="node-icon pixel-box">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div class="node-content pixel-box">
+                            <div class="node-header">
+                                <span class="node-year">2023 - PRESENT</span>
+                                <span class="node-badge">LEVEL: SENIOR DEV</span>
+                            </div>
+                            <h3 class="node-title">Senior Full-Stack Engineer</h3>
+                            <h4 class="node-company">NextGen Tech Solutions</h4>
+                            <p class="node-desc">
+                                Led the core architecture overhaul for a multi-tenant cloud SaaS platform serving 500k+
+                                active monthly users. Optimized microservice latency by 42% and spearheaded full CI/CD
+                                deployment automation.
+                            </p>
+                            <div class="node-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>PostgreSQL</span>
+                                <span>AWS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="timeline-node">
+                        <div class="node-icon pixel-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="node-content pixel-box">
+                            <div class="node-header">
+                                <span class="node-year">2021 - 2023</span>
+                                <span class="node-badge">LEVEL: MID ENGINEER</span>
+                            </div>
+                            <h3 class="node-title">Software Engineer</h3>
+                            <h4 class="node-company">Apex Interactive Systems</h4>
+                            <p class="node-desc">
+                                Built real-time collaborative workspace tools with WebSocket backends and responsive
+                                reactive frontends. Implemented end-to-end telemetry and automated test suites achieving
+                                94% coverage.
+                            </p>
+                            <div class="node-tags">
+                                <span>TypeScript</span>
+                                <span>FastAPI</span>
+                                <span>Docker</span>
+                                <span>Redis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="timeline-node">
+                        <div class="node-icon pixel-box">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="node-content pixel-box">
+                            <div class="node-header">
+                                <span class="node-year">2017 - 2021</span>
+                                <span class="node-badge">EDUCATION DEGREE</span>
+                            </div>
+                            <h3 class="node-title">B.Tech in Computer Science & Engineering</h3>
+                            <h4 class="node-company">University of Engineering & Technology</h4>
+                            <p class="node-desc">
+                                Graduated with First Class Honours. Focused on Data Structures, Distributed Systems,
+                                Compiler Design, and Artificial Intelligence. Won 1st place in Inter-College 48hr
+                                Hackathon.
+                            </p>
+                            <div class="node-tags">
+                                <span>Data Structures</span>
+                                <span>Algorithms</span>
+                                <span>OOP</span>
+                                <span>Database Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 5: PROJECTS SECTION
+                 Clickable thumbnails opening detailed modal views & live links
+                 ====================================================================== -->
+            <section id="projects" class="portfolio-section" aria-labelledby="projects-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ COMPLETED DUNGEONS ]</span>
+                    <h2 id="projects-heading" class="section-title">FEATURED PROJECTS</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- Project 1: CyberStore E-Commerce -->
+                    <!-- Click triggers openProjectModal(1) for complete specs & live preview details -->
+                    <article class="project-card pixel-box" data-project-id="1">
+                        <div class="project-thumbnail-wrapper">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
+                                alt="Pixel CyberStore Platform screenshot" class="project-thumb">
+                            <div class="project-overlay">
+                                <button class="pixel-btn-sm view-details-btn" onclick="openProjectModal(1)">
+                                    <i class="fa-solid fa-eye"></i> INSPECT PROJECT
+                                </button>
+                            </div>
+                            <span class="project-tag-pill">FULL STACK</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">CyberStore 2088</h3>
+                            <p class="project-summary">
+                                High-speed retro e-commerce web platform with stripe payment integration, real-time
+                                inventory management, and Redis session caching.
+                            </p>
+                            <div class="project-tech-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>Stripe</span>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="project-card-footer">
+                                <button class="pixel-link-btn" onclick="openProjectModal(1)">
+                                    <span>Details</span> <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: AI Workflow Copilot -->
+                    <article class="project-card pixel-box" data-project-id="2">
+                        <div class="project-thumbnail-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80"
+                                alt="AI Agent Workflow Engine screenshot" class="project-thumb">
+                            <div class="project-overlay">
+                                <button class="pixel-btn-sm view-details-btn" onclick="openProjectModal(2)">
+                                    <i class="fa-solid fa-eye"></i> INSPECT PROJECT
+                                </button>
+                            </div>
+                            <span class="project-tag-pill">AI & AGENTS</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">AgentFlow AI Orchestrator</h3>
+                            <p class="project-summary">
+                                Visual node-based workflow builder orchestrating multi-agent LLM pipelines, autonomous
+                                code generation, and automated testing loops.
+                            </p>
+                            <div class="project-tech-tags">
+                                <span>Next.js</span>
+                                <span>Python</span>
+                                <span>LangChain</span>
+                                <span>WebSockets</span>
+                            </div>
+                            <div class="project-card-footer">
+                                <button class="pixel-link-btn" onclick="openProjectModal(2)">
+                                    <span>Details</span> <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Retro Cloud Monitoring Dashboard -->
+                    <article class="project-card pixel-box" data-project-id="3">
+                        <div class="project-thumbnail-wrapper">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=80"
+                                alt="Cloud Telemetry Dashboard screenshot" class="project-thumb">
+                            <div class="project-overlay">
+                                <button class="pixel-btn-sm view-details-btn" onclick="openProjectModal(3)">
+                                    <i class="fa-solid fa-eye"></i> INSPECT PROJECT
+                                </button>
+                            </div>
+                            <span class="project-tag-pill">DEVOPS</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">PixelMetrics Telemetry</h3>
+                            <p class="project-summary">
+                                Real-time server telemetry and log visualization dashboard with customizable alert
+                                triggers and Prometheus/Grafana pipeline feeds.
+                            </p>
+                            <div class="project-tech-tags">
+                                <span>TypeScript</span>
+                                <span>Go</span>
+                                <span>Docker</span>
+                                <span>Prometheus</span>
+                            </div>
+                            <div class="project-card-footer">
+                                <button class="pixel-link-btn" onclick="openProjectModal(3)">
+                                    <span>Details</span> <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: PixelRPG Game Engine -->
+                    <article class="project-card pixel-box" data-project-id="4">
+                        <div class="project-thumbnail-wrapper">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=80"
+                                alt="Pixel RPG Browser Game Engine screenshot" class="project-thumb">
+                            <div class="project-overlay">
+                                <button class="pixel-btn-sm view-details-btn" onclick="openProjectModal(4)">
+                                    <i class="fa-solid fa-eye"></i> INSPECT PROJECT
+                                </button>
+                            </div>
+                            <span class="project-tag-pill">CANVAS / WEBAUDIO</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">RetroQuest Engine</h3>
+                            <p class="project-summary">
+                                Lightweight HTML5 Canvas 2D tile engine with spatial collision detection, A*
+                                pathfinding, inventory systems, and chip-tune audio synthesizer.
+                            </p>
+                            <div class="project-tech-tags">
+                                <span>Canvas 2D</span>
+                                <span>Web Audio</span>
+                                <span>JavaScript</span>
+                                <span>Vite</span>
+                            </div>
+                            <div class="project-card-footer">
+                                <button class="pixel-link-btn" onclick="openProjectModal(4)">
+                                    <span>Details</span> <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 6: INTRODUCTION VIDEO SHOWCASE SECTION
+                 Responsive video player featuring Abhay's introduction video
+                 ====================================================================== -->
+            <section id="video-highlight" class="portfolio-section" aria-labelledby="video-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ TRANSMISSION RECORDING ]</span>
+                    <h2 id="video-heading" class="section-title">INTRODUCTION VIDEO</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <div class="video-showcase-container pixel-box">
+                    <div class="crt-tv-frame">
+                        <div class="tv-antenna-bar" aria-hidden="true">
+                            <span class="antenna left"></span>
+                            <span class="antenna right"></span>
+                        </div>
+                        <div class="tv-screen-wrapper">
+                            <!-- Responsive 16:9 Video Container -->
+                            <div class="responsive-video-container">
+                                <video controls preload="metadata" class="intro-video-player"
+                                    poster="WhatsApp Image 2026-10-05 at 7.47.28 PM.jpeg">
+                                    <source src="CameraX-recording-1791222294282.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="tv-scanline-fx" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                        <div class="tv-control-panel">
+                            <div class="tv-speakers" aria-hidden="true">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <div class="tv-knobs">
+                                <span class="knob" title="Channel Knob"></span>
+                                <span class="knob" title="Volume Knob"></span>
+                            </div>
+                            <span class="tv-led-indicator"></span>
+                        </div>
+                    </div>
+
+                    <div class="video-caption-box">
+                        <h3 class="video-caption-title"><i class="fa-solid fa-play"></i> MY INTRODUCTION & DEVELOPMENT
+                            JOURNEY</h3>
+                        <p class="video-caption-text">
+                            A personal walkthrough of my background, software engineering philosophy, and the projects
+                            I've built.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 7: TESTIMONIALS SECTION
+                 Card containers with drop shadow and beveled pixel borders
+                 ====================================================================== -->
+            <section id="testimonials" class="portfolio-section" aria-labelledby="testimonials-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ PARTY REVIEWS & ENDORSEMENTS ]</span>
+                    <h2 id="testimonials-heading" class="section-title">TESTIMONIALS</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card pixel-box">
+                        <div class="quote-mark">“</div>
+                        <p class="testimonial-quote">
+                            Abhay is an exceptionally talented engineer. He completely revamped our cloud infrastructure
+                            and slashed API response times by more than half. His dedication to clean code and
+                            pixel-perfect design is rare and invaluable.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar pixel-avatar-sm">
+                                <span>🧑‍💼</span>
+                            </div>
+                            <div class="author-info">
+                                <h3 class="author-name">Sarah Jenkins</h3>
+                                <span class="author-role">VP of Engineering, CloudScale</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card pixel-box">
+                        <div class="quote-mark">“</div>
+                        <p class="testimonial-quote">
+                            Working alongside Abhay was an absolute pleasure. He breaks down complex distributed system
+                            problems into actionable, elegant solutions. Any team looking for a powerhouse developer
+                            will be lucky to have him.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar pixel-avatar-sm">
+                                <span>👩‍💻</span>
+                            </div>
+                            <div class="author-info">
+                                <h3 class="author-name">Elena Rostova</h3>
+                                <span class="author-role">Lead Architect, Apex Interactive</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card pixel-box">
+                        <div class="quote-mark">“</div>
+                        <p class="testimonial-quote">
+                            Abhay delivered our customer-facing web app ahead of schedule with zero major bugs. His
+                            communication and proactive problem-solving made the entire launch process completely
+                            stress-free.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar pixel-avatar-sm">
+                                <span>👨‍🚀</span>
+                            </div>
+                            <div class="author-info">
+                                <h3 class="author-name">David Chen</h3>
+                                <span class="author-role">Product Director, Nexus Labs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 8: INTERACTIVE AI CHAT SECTION
+                 Chat interface to converse with an AI persona of the developer
+                 ====================================================================== -->
+            <section id="chat" class="portfolio-section" aria-labelledby="chat-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ NPC DIALOGUE SYSTEM ]</span>
+                    <h2 id="chat-heading" class="section-title">CHAT WITH ABHAY'S AI</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <div class="chat-container pixel-box">
+                    <div class="chat-header-bar">
+                        <div class="chat-npc-info">
+                            <div class="npc-avatar">🤖</div>
+                            <div>
+                                <h3 class="npc-name">ABHAY-BOT v2.4</h3>
+                                <span class="npc-status"><span class="status-pulse"></span> ONLINE | POWERED BY
+                                    SIMULATED INTELLIGENCE</span>
+                            </div>
+                        </div>
+                        <div class="chat-controls">
+                            <button id="clearChatBtn" class="pixel-btn-sm" title="Clear Chat History">
+                                <i class="fa-solid fa-trash-can"></i> RESET
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Message Stream -->
+                    <div id="chatMessages" class="chat-message-stream" role="log" aria-live="polite">
+                        <div class="chat-message bot-msg">
+                            <div class="msg-avatar">👾</div>
+                            <div class="msg-bubble pixel-bubble">
+                                <div class="msg-sender">Abhay-Bot:</div>
+                                <p>Greetings, traveler! I am the AI construct of Abhay. Ask me anything about Abhay's
+                                    tech stack, experience, past projects, or how to hire him!</p>
+                                <span class="msg-timestamp">Just now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Prompt Suggestions -->
+                    <div class="chat-prompt-chips" aria-label="Suggested questions">
+                        <span class="prompt-chip" onclick="sendSuggestedPrompt('What are your main tech skills?')">🛠️
+                            Skills</span>
+                        <span class="prompt-chip" onclick="sendSuggestedPrompt('Tell me about your best projects.')">🚀
+                            Projects</span>
+                        <span class="prompt-chip"
+                            onclick="sendSuggestedPrompt('Are you available for full-time or freelance?')">💼
+                            Availability</span>
+                        <span class="prompt-chip"
+                            onclick="sendSuggestedPrompt('What are your hobbies outside coding?')">🎮 Hobbies</span>
+                    </div>
+
+                    <!-- Chat Input Form -->
+                    <form id="chatForm" class="chat-input-area" onsubmit="handleChatSubmit(event)">
+                        <label for="chatInput" class="sr-only">Type your message to Abhay AI</label>
+                        <input type="text" id="chatInput" class="pixel-input chat-input-field"
+                            placeholder="Type a message or question..." autocomplete="off" required>
+                        <button type="submit" id="chatSendBtn" class="pixel-button primary-btn chat-send-btn"
+                            aria-label="Send message">
+                            <i class="fa-solid fa-paper-plane"></i> SEND
+                        </button>
+                    </form>
+
+                    <!-- Code comment for API integration (OpenAI / Gemini / Custom Backend) -->
+                    <!-- NOTE: To connect this with a live LLM API (e.g., OpenAI / Gemini), configure the fetch hook in script.js under handleChatSubmit() -->
+                </div>
+            </section>
+
+            <!-- ======================================================================
+                 SECTION 9: CONTACT FORM SECTION
+                 Form with high contrast submit button & submission feedback
+                 ====================================================================== -->
+            <section id="contact" class="portfolio-section" aria-labelledby="contact-heading">
+                <div class="section-header">
+                    <span class="section-tag">[ TRANSMIT DISPATCH ]</span>
+                    <h2 id="contact-heading" class="section-title">GET IN TOUCH</h2>
+                    <div class="pixel-divider"></div>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Form Card -->
+                    <div class="contact-card pixel-box">
+                        <h3 class="contact-subtitle"><i class="fa-solid fa-feather-pointed"></i> SEND A DIRECT MESSAGE
+                        </h3>
+                        <p class="contact-desc">
+                            Have a project in mind, an engineering role open, or just want to discuss retro tech? Drop a
+                            message below and I'll respond within 24 hours.
+                        </p>
+
+                        <!-- Form Feedback Alert Placeholder -->
+                        <div id="formFeedback" class="form-feedback hidden" role="alert"></div>
+
+                        <form id="contactForm" onsubmit="handleContactSubmit(event)" novalidate>
+                            <div class="form-group">
+                                <label for="contactName" class="pixel-label">YOUR NAME <span
+                                        class="required-star">*</span></label>
+                                <input type="text" id="contactName" name="name" class="pixel-input"
+                                    placeholder="e.g. Satoshi Nakamoto" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail" class="pixel-label">YOUR EMAIL <span
+                                        class="required-star">*</span></label>
+                                <input type="email" id="contactEmail" name="email" class="pixel-input"
+                                    placeholder="e.g. user@domain.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage" class="pixel-label">MESSAGE / QUEST BRIEF <span
+                                        class="required-star">*</span></label>
+                                <textarea id="contactMessage" name="message" rows="5" class="pixel-input pixel-textarea"
+                                    placeholder="Describe your project, team requirements, or ideas..."
+                                    required></textarea>
+                            </div>
+
+                            <!-- High-contrast Pixel Submit Button -->
+                            <!-- NOTE: Integrate with email sending services like Resend, Formspree, or EmailJS inside script.js handleContactSubmit() -->
+                            <button type="submit" id="contactSubmitBtn" class="pixel-button primary-btn submit-btn">
+                                <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Direct Contact Information Box -->
+                    <div class="contact-info-card pixel-box">
+                        <h3 class="contact-subtitle"><i class="fa-solid fa-terminal"></i> TRANSMISSION CHANNELS</h3>
+
+                        <div class="contact-channel-item">
+                            <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <span class="channel-label">ELECTRONIC MAIL</span>
+                                <a href="mailto:abhay.engineer@example.com"
+                                    class="channel-link">abhay.engineer@example.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-channel-item">
+                            <div class="channel-icon"><i class="fa-brands fa-github"></i></div>
+                            <div>
+                                <span class="channel-label">CODE REPOSITORY</span>
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="channel-link">github.com/abhay-dev</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-channel-item">
+                            <div class="channel-icon"><i class="fa-brands fa-linkedin"></i></div>
+                            <div>
+                                <span class="channel-label">PROFESSIONAL NETWORK</span>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                                    class="channel-link">linkedin.com/in/abhay-dev</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-channel-item">
+                            <div class="channel-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <span class="channel-label">TIMEZONE AVAILABILITY</span>
+                                <span class="channel-text">UTC / IST (Flexible overlap with US/EU)</span>
+                            </div>
+                        </div>
+
+                        <div class="pixel-box-callout">
+                            <span class="callout-icon">💡</span>
+                            <p>Prefer real-time chat? Try out the built-in <strong>AI Chat assistant</strong> above for
+                                immediate answers!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ==========================================================================
+         PROJECT DETAIL MODAL (INSPECT VIEW)
+         Dynamic overlay displaying in-depth specifications for clicked projects
+         ========================================================================== -->
+    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle"
+        aria-hidden="true">
+        <div class="modal-backdrop" onclick="closeProjectModal()"></div>
+        <div class="modal-dialog pixel-box">
+            <button class="modal-close-btn" onclick="closeProjectModal()" aria-label="Close Project Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body" id="modalProjectContent">
+                <!-- Dynamically populated via script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         FOOTER SECTION
+         Evenly spaced pixel art social icons, copyright notice, and back to top
+         ========================================================================== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="pixel-logo">👾 ABHAY // SOFTWARE ENGINEER</div>
+                <p class="footer-tagline">Building the future of software, one pixel and commit at a time.</p>
+            </div>
+
+            <!-- Social Media Pixel Links with ARIA accessibility labels -->
+            <div class="footer-social-links" aria-label="Social Media Profile Links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-pixel-link"
+                    aria-label="Abhay's GitHub Profile" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pixel-link"
+                    aria-label="Abhay's LinkedIn Profile" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-pixel-link"
+                    aria-label="Abhay's X (Twitter) Profile" title="Twitter / X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="mailto:abhay.engineer@example.com" class="social-pixel-link" aria-label="Send Email to Abhay"
+                    title="Email Me">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://dev.to" target="_blank" rel="noopener noreferrer" class="social-pixel-link"
+                    aria-label="Abhay's Technical Blog Articles" title="Dev.to Blog">
+                    <i class="fa-brands fa-dev"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright-text">
+                    &copy; <span id="currentYear">2026</span> ABHAY. ALL RIGHTS RESERVED. CRAFTED WITH 👾 PIXEL ARTISTRY
+                    & HTML/CSS/JS.
+                </p>
+                <a href="#hero" class="back-to-top-btn" aria-label="Back to top of page">
+                    <i class="fa-solid fa-arrow-up"></i> TOP
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
